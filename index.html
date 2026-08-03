@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Praxio PSN Consulting — Psicosocionomía Corporativa</title>
+<meta name="description" content="Praxio PSN Consulting. Consultoría de Psicosocionomía (PSN). Diagnóstico e intervención sobre la arquitectura relacional de las organizaciones.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+  :root{
+    --graphite:#1C2B39;
+    --graphite-70: rgba(28,43,57,0.72);
+    --graphite-45: rgba(28,43,57,0.48);
+    --graphite-12: rgba(28,43,57,0.12);
+    --sage:#7A9B7E;
+    --sage-dark:#5f7d63;
+    --bone:#F4F2EE;
+    --white:#FFFFFF;
+  }
+
+  *{ box-sizing: border-box; }
+
+  html, body{
+    margin:0;
+    padding:0;
+    background: var(--bone);
+    color: var(--graphite);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a{ color: inherit; }
+
+  .page{
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: clamp(20px, 4vw, 48px) clamp(20px, 5vw, 64px);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(20px, 3vh, 34px);
+  }
+
+  .brand-row{
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .wordmark{
+    display:flex;
+    align-items:center;
+    gap: 14px;
+  }
+
+  .glyph{ flex-shrink:0; }
+
+  .wordmark-text{
+    line-height: 1;
+    display:flex;
+    align-items:baseline;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .wordmark-text .praxio{
+    font-size: 21px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--graphite);
+  }
+
+  .wordmark-text .descriptor{
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    color: var(--sage-dark);
+  }
+
+  .discipline-tag{
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--graphite-45);
+    border: 1px solid var(--graphite-12);
+    border-radius: 100px;
+    padding: 7px 16px;
+    white-space: nowrap;
+  }
+
+  .balance-rule{
+    display:flex;
+    align-items:center;
+    gap: 14px;
+  }
+  .balance-rule .line{
+    flex:1;
+    height:1px;
+    background: var(--graphite-12);
+  }
+  .balance-rule .dot{
+    width:5px; height:5px; border-radius:50%;
+    background: var(--sage);
+    flex-shrink:0;
+  }
+
+  .hero{
+    display:grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: clamp(28px, 5vw, 72px);
+    align-items: start;
+  }
+
+  .hero h1{
+    font-size: clamp(28px, 3.4vw, 42px);
+    line-height: 1.18;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    margin: 0 0 20px 0;
+    max-width: 15ch;
+  }
+
+  .hero .lede{
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--graphite-70);
+    max-width: 46ch;
+    margin: 0 0 18px 0;
+  }
+
+  .hero .lede strong{
+    color: var(--graphite);
+    font-weight: 600;
+  }
+
+  .concept-note{
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--graphite-45);
+    max-width: 44ch;
+    padding-left: 16px;
+    border-left: 2px solid var(--sage);
+  }
+
+  .concept-note strong{
+    color: var(--graphite);
+    font-weight: 600;
+  }
+
+  .pillars-block h2{
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--graphite-45);
+    margin: 0 0 18px 0;
+  }
+
+  .pillars{
+    display:flex;
+    flex-direction: column;
+    gap: 0;
+    border-top: 1px solid var(--graphite-12);
+  }
+
+  .pillar{
+    display:grid;
+    grid-template-columns: 84px 1fr;
+    gap: 18px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--graphite-12);
+  }
+
+  .pillar .tag{
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--sage-dark);
+    padding-top: 1px;
+  }
+
+  .pillar p{
+    margin:0;
+    font-size: 14.5px;
+    line-height: 1.55;
+    color: var(--graphite-70);
+  }
+
+  .pillar p strong{
+    color: var(--graphite);
+    font-weight: 600;
+  }
+
+  .impact-note{
+    margin-top: 18px;
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--graphite-45);
+  }
+
+  .who-band{
+    background: var(--graphite);
+    color: var(--bone);
+    border-radius: 6px;
+    padding: clamp(22px, 3.4vw, 30px) clamp(24px, 4vw, 40px);
+    display:grid;
+    grid-template-columns: 200px 1fr;
+    gap: clamp(20px, 4vw, 48px);
+    align-items: center;
+  }
+
+  .who-band h2{
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin: 0;
+  }
+
+  .who-band p{
+    margin:0;
+    font-size: 15.5px;
+    line-height: 1.6;
+    color: rgba(244,242,238,0.88);
+    max-width: 68ch;
+  }
+
+  .who-band p strong{
+    color: var(--white);
+    font-weight: 600;
+  }
+
+  .contact{
+    display:grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: 24px;
+    padding-top: 4px;
+  }
+
+  .contact-id .name{
+    font-size: 19px;
+    font-weight: 600;
+    margin: 0 0 3px 0;
+    color: var(--graphite);
+  }
+
+  .contact-id .role{
+    font-size: 13.5px;
+    color: var(--graphite-45);
+    margin: 0 0 16px 0;
+  }
+
+  .contact-links{
+    display:flex;
+    gap: 28px;
+    flex-wrap: wrap;
+  }
+
+  .contact-links a{
+    display:flex;
+    flex-direction: column;
+    gap: 3px;
+    text-decoration: none;
+  }
+
+  .contact-links .label{
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--graphite-45);
+  }
+
+  .contact-links .value{
+    font-size: 14.5px;
+    font-weight: 500;
+    color: var(--graphite);
+    border-bottom: 1px solid transparent;
+    transition: border-color .15s ease, color .15s ease;
+  }
+
+  .contact-links a:hover .value{
+    color: var(--sage-dark);
+    border-bottom-color: var(--sage);
+  }
+
+  .contact-firm{
+    text-align: right;
+    font-size: 11.5px;
+    line-height: 1.5;
+    color: var(--graphite-45);
+    white-space: nowrap;
+  }
+
+  .contact-firm .firm-name{
+    font-weight: 600;
+    color: var(--graphite-70);
+  }
+
+  @media (max-width: 880px){
+    .hero{ grid-template-columns: 1fr; gap: 30px; }
+    .who-band{ grid-template-columns: 1fr; gap: 10px; }
+    .pillar{ grid-template-columns: 70px 1fr; }
+    .contact{ grid-template-columns: 1fr; }
+    .contact-firm{ text-align: left; }
+  }
+
+  @media (max-width: 520px){
+    .contact-links{ gap: 20px; }
+    .discipline-tag{ display:none; }
+  }
+
+  @media (prefers-reduced-motion: no-preference){
+    .page > *{
+      animation: rise .5s ease both;
+    }
+    .page > *:nth-child(2){ animation-delay: .04s; }
+    .page > *:nth-child(3){ animation-delay: .08s; }
+    .page > *:nth-child(4){ animation-delay: .12s; }
+    .page > *:nth-child(5){ animation-delay: .16s; }
+    .page > *:nth-child(6){ animation-delay: .2s; }
+    @keyframes rise{
+      from{ opacity:0; transform: translateY(6px); }
+      to{ opacity:1; transform: translateY(0); }
+    }
+  }
+
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <div class="brand-row">
+    <div class="wordmark">
+      <svg class="glyph" width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 24C10 24 12 8 20 8C26 8 28 14 30 14" stroke="#1C2B39" stroke-width="2.2" stroke-linecap="round"/>
+        <path d="M4 20C6 20 8 26 14 26C22 26 24 10 30 10" stroke="#7A9B7E" stroke-width="2.2" stroke-linecap="round"/>
+        <circle cx="17" cy="17" r="2.4" fill="#1C2B39"/>
+      </svg>
+      <div class="wordmark-text">
+        <span class="praxio">Praxio</span><span class="descriptor">PSN CONSULTING</span>
+      </div>
+    </div>
+    <div class="discipline-tag">Psicosocionomía · Consultoría Corporativa</div>
+  </div>
+
+  <div class="balance-rule"><div class="line"></div><div class="dot"></div><div class="line"></div></div>
+
+  <div class="hero">
+
+    <div class="identity-block">
+      <h1>El equilibrio dinámico de las organizaciones, gestionado con rigor.</h1>
+      <p class="lede">
+        <strong>Praxio PSN Consulting</strong> es la consultora de <strong>Psicosocionomía (PSN)</strong> de Jonatan Pérez.
+        Diagnosticamos e intervenimos en la arquitectura relacional de las organizaciones —
+        la interacción entre la persona, el sistema de equipo y la administración de sus
+        recursos relacionales — para reducir los costes ocultos del malestar organizativo
+        y sostener el rendimiento en el tiempo.
+      </p>
+      <p class="concept-note">
+        <strong>Praxio</strong>, de praxis: la puesta en práctica del conocimiento. El símbolo de la marca
+        representa la homeostasis — la capacidad de un sistema vivo de autorregularse ante la tensión
+        y el cambio. No perseguimos un estado de bienestar estático, sino una organización capaz
+        de reencontrar su equilibrio operativo de forma sostenida.
+      </p>
+    </div>
+
+    <div class="pillars-block">
+      <h2>Qué hacemos</h2>
+      <div class="pillars">
+        <div class="pillar">
+          <div class="tag">Lo Psico</div>
+          <p>La estructura individual de cada persona: sus <strong>esquemas de respuesta</strong> ante la presión, el liderazgo y la incertidumbre.</p>
+        </div>
+        <div class="pillar">
+          <div class="tag">Lo Socio</div>
+          <p>La empresa como <strong>sistema relacional vivo</strong>: flujos de poder, comunicación, silos y fricciones recurrentes entre equipos.</p>
+        </div>
+        <div class="pillar">
+          <div class="tag">La Nomía</div>
+          <p>La administración del recurso relacional y su <strong>traducción en rentabilidad</strong> y eficiencia operativa.</p>
+        </div>
+      </div>
+      <p class="impact-note">
+        Auditoría psicosocionómica → diseño de la arquitectura relacional → intervención sistémica →
+        anclaje y medición del impacto. Sin terapia grupal ni bienestar genérico: ingeniería relacional
+        aplicada, con impacto directo sobre la cuenta de resultados.
+      </p>
+    </div>
+
+  </div>
+
+  <div class="balance-rule"><div class="line"></div><div class="dot"></div><div class="line"></div></div>
+
+  <div class="who-band">
+    <h2>Para quién</h2>
+    <p>
+      Empresas de <strong>50 o más empleados</strong>, con interlocutores en
+      <strong>Dirección General y Dirección de Recursos Humanos</strong> que necesitan una lectura
+      rigurosa y accionable de las dinámicas que condicionan el rendimiento y la sostenibilidad
+      de su organización.
+    </p>
+  </div>
+
+  <div class="contact">
+    <div class="contact-id">
+      <p class="name">Jonatan Pérez</p>
+      <p class="role">Psicosociónomo · Consultor Estratégico en Dinámicas Relacionales</p>
+      <div class="contact-links">
+        <a href="mailto:praxiopsn@gmail.com">
+          <span class="label">Email</span>
+          <span class="value">praxiopsn@gmail.com</span>
+        </a>
+        <a href="tel:+34650858883">
+          <span class="label">Teléfono</span>
+          <span class="value">+34 650 858 883</span>
+        </a>
+      </div>
+    </div>
+    <div class="contact-firm">
+      <div class="firm-name">Praxio PSN Consulting</div>
+      <div>Consultoría de Psicosocionomía (PSN)</div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
