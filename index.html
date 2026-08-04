@@ -305,17 +305,101 @@
     color: var(--graphite-70);
   }
 
+  .process-block{
+    padding-top: 4px;
+  }
+
+  .process-block h2{
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--graphite-45);
+    margin: 0 0 20px 0;
+  }
+
+  .process-steps{
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+  }
+
+  .step{
+    border-top: 2px solid var(--sage);
+    padding-top: 14px;
+  }
+
+  .step-number{
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--sage-dark);
+    letter-spacing: 0.04em;
+    margin-bottom: 6px;
+  }
+
+  .step-name{
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--graphite);
+    margin-bottom: 8px;
+  }
+
+  .step p{
+    margin:0;
+    font-size: 13.5px;
+    line-height: 1.55;
+    color: var(--graphite-70);
+  }
+
+  .cta-band{
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 6px 2px 0 2px;
+  }
+
+  .cta-text{
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--graphite);
+    margin:0;
+  }
+
+  .cta-button{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background: var(--graphite);
+    color: var(--bone);
+    text-decoration:none;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 13px 26px;
+    border-radius: 100px;
+    transition: background .15s ease;
+    white-space: nowrap;
+  }
+
+  .cta-button:hover{
+    background: var(--sage-dark);
+  }
+
   @media (max-width: 880px){
     .hero{ grid-template-columns: 1fr; gap: 30px; }
     .who-band{ grid-template-columns: 1fr; gap: 10px; }
     .pillar{ grid-template-columns: 70px 1fr; }
     .contact{ grid-template-columns: 1fr; }
     .contact-firm{ text-align: left; }
+    .process-steps{ grid-template-columns: repeat(2, 1fr); gap: 24px; }
   }
 
   @media (max-width: 520px){
     .contact-links{ gap: 20px; }
     .discipline-tag{ display:none; }
+    .process-steps{ grid-template-columns: 1fr; gap: 22px; }
+    .cta-band{ flex-direction: column; align-items: flex-start; }
   }
 
   @media (prefers-reduced-motion: no-preference){
@@ -327,6 +411,8 @@
     .page > *:nth-child(4){ animation-delay: .12s; }
     .page > *:nth-child(5){ animation-delay: .16s; }
     .page > *:nth-child(6){ animation-delay: .2s; }
+    .page > *:nth-child(7){ animation-delay: .24s; }
+    .page > *:nth-child(8){ animation-delay: .28s; }
     @keyframes rise{
       from{ opacity:0; transform: translateY(6px); }
       to{ opacity:1; transform: translateY(0); }
@@ -387,13 +473,13 @@
               <div class="pillars">
                 <div class="pillar">
                   <div class="tag">Lo Psico</div>
-                  <p>Cómo reacciona cada persona ante la presión: sus <strong>patrones de respuesta</strong> frente al estrés, el liderazgo y los cambios inesperados.</p>
-                </div>
-              <div class="pillar">
-              <div class="tag">Lo Socio</div>
-              <p>Cómo se relaciona el equipo entre sí: la <strong>comunicación y la confianza</strong> entre departamentos, y los conflictos que se repiten una y otra vez.</p>
-              </div>
-              <div class="pillar">
+                    <div class="step">
+                    <div class="step-number">04</div>
+                    <div class="step-name">Anclaje</div>
+                    <p>Medimos lo que ha cambiado — clima, retención, ausencias — y dejamos las nuevas dinámicas ancladas para que se sostengan sin nosotros.</p>
+                    </div>
+                    </div>
+                    </div>
               <div class="tag">La Nomía</div>
               <p>Cómo se gestiona ese desgaste (o ese buen ambiente) y se convierte en <strong>resultados concretos</strong> para el negocio.</p>
               </div>
@@ -401,6 +487,32 @@
       
 </div>
   </div>
+
+      <div class="process-block">
+        <h2>Cómo trabajamos</h2>
+      <div class="process-steps">
+      <div class="step">
+      <div class="step-number">01</div>
+      <div class="step-name">Diagnóstico</div>
+      <p>Escuchamos, observamos y analizamos cómo se relaciona tu equipo: entrevistas, observación directa y mapeo de lo que está frenando el día a día.</p>
+      </div>
+      <div class="step">
+      <div class="step-number">02</div>
+      <div class="step-name">Diseño</div>
+      <p>Con esa información diseñamos un plan a medida: qué cambiar, en qué orden y por dónde empezar.</p>
+      </div>
+      <div class="step">
+      <div class="step-number">03</div>
+      <div class="step-name">Intervención</div>
+      <p>Trabajamos directamente con dirección y equipos clave: sesiones, talleres y acompañamiento en las conversaciones más difíciles.</p>
+      </div>
+      <div class="step">
+      <div class="step-number">04</div>
+      <div class="step-name">Anclaje</div>
+      <p>Medimos lo que ha cambiado — clima, retención, ausencias — y dejamos las nuevas dinámicas ancladas para que se sostengan sin nosotros.</p>
+      </div>
+      </div>
+      </div>
   <div class="balance-rule"><div class="line"></div><div class="dot"></div><div class="line"></div></div>
 
   <div class="who-band">
@@ -409,7 +521,11 @@
       Empresas PYME, medianas y multinacionales cuya Dirección General o de Recursos Humanos necesita entender, con datos y sin rodeos, qué está pasando puertas adentro — y qué hacer con ello.
     </p>
   </div>
-
+      <div class="cta-band">
+        <p class="cta-text">Si algo de esto te suena familiar en tu organización, hablemos.</p>
+        <a class="cta-button" href="mailto:praxiopsn@gmail.com?subject=Consulta%20PSN">Escríbeme y lo vemos →</a>
+      </div>
+  
   <div class="contact">
     <div class="contact-id">
       <p class="name">Jonatan Pérez</p>
